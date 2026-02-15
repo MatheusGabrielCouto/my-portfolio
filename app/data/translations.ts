@@ -56,7 +56,7 @@ export const translations = {
     contact: {
       label: "Contato",
       title: "Vamos conversar?",
-      subtitle: "Disponível para novos projetos e oportunidades. Bacharel em Sistemas de Informação (Unesc, 2019–2022).",
+      subtitle: "Disponível para novos projetos e oportunidades.",
       email: "E-mail",
       phone: "Telefone",
       downloadCvPdf: "Baixar CV (PDF)",
@@ -120,7 +120,7 @@ export const translations = {
     contact: {
       label: "Contact",
       title: "Let's talk?",
-      subtitle: "Available for new projects and opportunities. Bachelor's degree in Information Systems (Unesc, 2019–2022).",
+      subtitle: "Available for new projects and opportunities.",
       email: "Email",
       phone: "Phone",
       downloadCvPdf: "Download CV (PDF)",

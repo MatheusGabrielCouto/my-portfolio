@@ -23,7 +23,7 @@ export function SkillsSection({ label, title, skills }: SkillsSectionProps) {
             <motion.span
               key={skill}
               variants={staggerItemVariants}
-              className="min-h-[44px] rounded-full border border-(--border) bg-(--card-bg) px-3 py-2.5 text-xs text-(--muted) transition-colors hover:border-(--border-strong) hover:bg-(--hover-bg) hover:text-foreground sm:px-4 sm:py-2 sm:text-sm"
+              className="min-h-[44px] flex items-center justify-center rounded-full border border-(--border) bg-(--card-bg) px-3 py-2.5 text-xs text-(--muted) transition-colors hover:border-(--border-strong) hover:bg-(--hover-bg) hover:text-foreground sm:px-4 sm:py-2 sm:text-sm"
             >
               {skill}
             </motion.span>

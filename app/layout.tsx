@@ -17,6 +17,9 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Matheus Gabriel | Software Engineer",
   description: "Software Engineer with 5+ years in React, React Native, Next.js and NestJS. Web, mobile and full stack. Foz do Iguaçu, PR.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

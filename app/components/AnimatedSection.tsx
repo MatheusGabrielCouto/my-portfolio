@@ -2,6 +2,7 @@
 
 import { motion, useInView, type Variants } from "framer-motion";
 import { useRef, type ReactNode } from "react";
+import { useReducedMotion } from "@/app/hooks/useReducedMotion";
 
 const defaultVariants: Variants = {
   hidden: { opacity: 0, y: 48 },
@@ -21,6 +22,7 @@ export function AnimatedSection({
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const reducedMotion = useReducedMotion();
 
   return (
     <motion.div
@@ -28,7 +30,11 @@ export function AnimatedSection({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={variants}
-      transition={{ duration: 0.65, delay, ease: [0.22, 0.61, 0.36, 1] }}
+      transition={{
+        duration: reducedMotion ? 0.3 : 0.65,
+        delay: reducedMotion ? 0 : delay,
+        ease: [0.22, 0.61, 0.36, 1],
+      }}
       className={className}
     >
       {children}
@@ -47,6 +53,7 @@ export function StaggerChildren({
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const reducedMotion = useReducedMotion();
 
   return (
     <motion.div
@@ -54,7 +61,7 @@ export function StaggerChildren({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={{
-        visible: { transition: { staggerChildren: staggerDelay } },
+        visible: { transition: { staggerChildren: reducedMotion ? 0.04 : staggerDelay } },
         hidden: {},
       }}
       className={className}

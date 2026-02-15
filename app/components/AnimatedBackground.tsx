@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
+import { useReducedMotion } from "@/app/hooks/useReducedMotion";
 
 export function AnimatedBackground() {
   const { theme } = useTheme();
+  const reducedMotion = useReducedMotion();
   const isLight = theme === "light";
 
   return (
@@ -29,45 +31,22 @@ export function AnimatedBackground() {
       {/* Orbs: tema claro = neutro (slate), tema escuro = cyan */}
       <motion.div
         className={`absolute -top-1/2 -left-1/4 h-[80vh] w-[80vh] rounded-full blur-[100px] ${isLight ? "bg-slate-400/20" : "bg-cyan-500/15"}`}
-        animate={{
-          x: [0, 120, 0],
-          y: [0, 60, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        animate={reducedMotion ? undefined : { x: [0, 120, 0], y: [0, 60, 0], scale: [1, 1.2, 1] }}
+        transition={reducedMotion ? {} : { duration: 18, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className={`absolute top-1/2 -right-1/4 h-[70vh] w-[70vh] rounded-full blur-[120px] ${isLight ? "bg-slate-500/15" : "bg-cyan-600/12"}`}
-        animate={{
-          x: [0, -100, 0],
-          y: [0, -50, 0],
-          scale: [1, 1.25, 1],
-        }}
-        transition={{
-          duration: 22,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        animate={reducedMotion ? undefined : { x: [0, -100, 0], y: [0, -50, 0], scale: [1, 1.25, 1] }}
+        transition={reducedMotion ? {} : { duration: 22, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
         className={`absolute bottom-0 left-1/2 h-[50vh] w-[80vw] -translate-x-1/2 rounded-full blur-[80px] ${isLight ? "bg-slate-400/12" : "bg-cyan-500/10"}`}
-        animate={{
-          y: [0, -40, 0],
-          scale: [1, 1.3, 1],
-        }}
-        transition={{
-          duration: 16,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        animate={reducedMotion ? undefined : { y: [0, -40, 0], scale: [1, 1.3, 1] }}
+        transition={reducedMotion ? {} : { duration: 16, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Floating dots */}
-      {[...Array(12)].map((_, i) => (
+      {/* Floating dots: fewer and static on mobile */}
+      {[...Array(reducedMotion ? 4 : 12)].map((_, i) => (
         <motion.div
           key={i}
           className={`absolute h-1.5 w-1.5 rounded-full ${isLight ? "bg-slate-500/40" : "bg-cyan-400/40"}`}
@@ -75,16 +54,12 @@ export function AnimatedBackground() {
             left: `${10 + (i * 7) % 80}%`,
             top: `${15 + (i * 11) % 70}%`,
           }}
-          animate={{
-            opacity: [0.2, 0.6, 0.2],
-            scale: [1, 2, 1],
-          }}
-          transition={{
-            duration: 3 + (i % 3) * 1.5,
-            delay: i * 0.2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={reducedMotion ? undefined : { opacity: [0.2, 0.6, 0.2], scale: [1, 2, 1] }}
+          transition={
+            reducedMotion
+              ? {}
+              : { duration: 3 + (i % 3) * 1.5, delay: i * 0.2, repeat: Infinity, ease: "easeInOut" }
+          }
         />
       ))}
 

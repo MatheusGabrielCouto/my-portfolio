@@ -23,7 +23,7 @@ type HeroProps = {
 export function Hero({ content }: HeroProps) {
   const t = content;
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pt-16 pb-20 sm:px-6 sm:pt-20">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export function Hero({ content }: HeroProps) {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3 }}
-          className="mb-6 inline-block rounded-full border border-(--border) bg-(--card-bg) px-4 py-1.5 font-mono text-xs uppercase tracking-wider text-(--muted)"
+          className="mb-4 inline-block rounded-full border border-(--border) bg-(--card-bg) px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-(--muted) sm:mb-6 sm:px-4 sm:py-1.5 sm:text-xs"
         >
           {t.badge}
         </motion.div>
@@ -42,7 +42,7 @@ export function Hero({ content }: HeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="mb-4 font-mono text-sm text-(--muted)"
+          className="mb-3 font-mono text-xs text-(--muted) sm:mb-4 sm:text-sm"
         >
           {t.greeting}
         </motion.p>
@@ -50,7 +50,7 @@ export function Hero({ content }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+          className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
         >
           <GradientText>{t.name}</GradientText>
         </motion.h1>
@@ -58,7 +58,7 @@ export function Hero({ content }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.65 }}
-          className="mt-2 font-mono text-lg"
+          className="mt-1 font-mono text-base sm:mt-2 sm:text-lg"
         >
           <GradientText>{t.surname}</GradientText>
         </motion.p>
@@ -66,7 +66,7 @@ export function Hero({ content }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-4 text-xl font-medium text-(--muted) sm:text-2xl"
+          className="mt-3 text-lg font-medium text-(--muted) sm:mt-4 sm:text-xl md:text-2xl"
         >
           {t.role}
         </motion.p>
@@ -74,7 +74,7 @@ export function Hero({ content }: HeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.95 }}
-          className="mt-2 text-sm text-(--muted)"
+          className="mt-1 text-xs text-(--muted) sm:mt-2 sm:text-sm"
         >
           {t.location}
         </motion.p>
@@ -82,7 +82,7 @@ export function Hero({ content }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.05 }}
-          className="mt-14 flex flex-wrap justify-center gap-3"
+          className="mt-10 flex flex-wrap justify-center gap-2 sm:mt-14 sm:gap-3"
         >
           <Button href="#experiencia" variant="primary">
             {t.ctaExperience}
@@ -97,7 +97,7 @@ export function Hero({ content }: HeroProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.3 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 sm:bottom-10"
       >
         <motion.span
           animate={{ y: [0, 6, 0] }}

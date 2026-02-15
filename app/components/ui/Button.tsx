@@ -1,7 +1,7 @@
 import { type ReactNode, type AnchorHTMLAttributes } from "react";
 
 const base =
-  "rounded-full px-6 py-3.5 text-sm font-medium transition-colors";
+  "inline-flex min-h-[44px] items-center justify-center rounded-full px-5 py-3 text-sm font-medium transition-colors sm:px-6 sm:py-3.5";
 
 const variants = {
   primary:
